@@ -8,4 +8,4 @@ Copy and paste the script into your executor, REMINDER: YOUR EXECUTOR NEEDS TO H
 # CREDITS
 - vootri_um
 - aN0n-isgood
-# TO MORE INFORMATIONS JOIN OUR DISCORD SERVER: https://discord.gg/2EcP3fkzRJ
+## TO MORE INFORMATIONS JOIN OUR DISCORD SERVER: https://discord.gg/2EcP3fkzRJ
