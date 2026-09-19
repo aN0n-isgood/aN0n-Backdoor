@@ -7,5 +7,5 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/aN0n-isgood/aN0n-Back
 Copy and paste the script into your executor, REMINDER: YOUR EXECUTOR NEEDS TO HAVE A GOOD sUNC TO SUPPORT THE SCRIPT!
 # CREDITS
 - vootri_um
-- aN0n-isgood
+- aN0n
 ## TO MORE INFORMATIONS JOIN OUR DISCORD SERVER: https://discord.gg/2EcP3fkzRJ
