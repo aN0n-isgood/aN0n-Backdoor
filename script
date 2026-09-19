@@ -50,7 +50,7 @@ local STRING_VALUE_NAME = mathRandom(1000000, 9999999);
 -------------// aN0n-backdoor gui \\-------------
 
 local G2L = {};
-G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui").LocalPlayer:WaitForChild("RobloxGui"));
+G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"):WaitForChild("RobloxGui"));
 G2L["1"]["DisplayOrder"] = 999999999;
 G2L["1"]["Name"] = [[aN0n-backdoor]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
@@ -301,7 +301,7 @@ local script = G2L["3"];
 	
 	local lastMousePos
 	local lastGoalPos
-	local DRAG_SPEED = (20.5 / 6);
+	local DRAG_SPEED = (18.3 / 3);
 	local function Update(dt)
 		if not (startPos) then return end;
 		if not (dragging) and (lastGoalPos) then
